@@ -10,7 +10,7 @@ RUN apt-get update \
 RUN add-apt-repository ppa:ondrej/php \
   && apt-get update
 
-RUN apt-get -y install libpcre3 libssl1.1 openssl php8.1-cli php8.1-curl php8.1-mbstring \
+RUN apt-get -y install libpcre3 openssl php8.1-cli php8.1-curl php8.1-mbstring \
   php8.1-mysql php8.1-pgsql php8.1-gd php8.1-bcmath php8.1-readline \
   php8.1-zip php8.1-imap php8.1-xml php8.1-intl php8.1-soap \
   php8.1-memcached php8.1-xdebug php8.1-redis
