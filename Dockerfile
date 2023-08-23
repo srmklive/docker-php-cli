@@ -1,4 +1,4 @@
-FROM srmklive/docker-ubuntu:20.04
+FROM srmklive/docker-ubuntu:latest
 
 LABEL maintainer="Raza Mehdi<srmk@outlook.com>"
 
