@@ -13,11 +13,13 @@ RUN add-apt-repository ppa:ondrej/php \
 RUN apt-get -y install libssl1.1 openssl php5.6-fpm php5.6-cli php5.6-curl php5.6-mcrypt \
   php5.6-mbstring php5.6-zip php5.6-json php5.6-mysql php5.6-pgsql php5.6-gd \
   php5.6-bcmath php5.6-imap php5.6-xml php5.6-json php5.6-intl php5.6-soap \
-  php5.6-readline php5.6-memcached php-xdebug
+  php5.6-readline php5.6-memcached php5.6-ldap php5.6-xdebug
+
+RUN update-alternatives --set php /usr/bin/php5.6
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-  && php -r "if (hash_file('sha384', 'composer-setup.php') === '795f976fe0ebd8b75f26a6dd68f78fd3453ce79f32ecb33e7fd087d39bfeb978342fb73ac986cd4f54edd0dc902601dc') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
-  && php composer-setup.php --install-dir=/usr/bin --filename=composer \
+  && php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
+  && php composer-setup.php --2.2 --install-dir=/usr/bin --filename=composer \
   && php -r "unlink('composer-setup.php');"  
 
 RUN apt-get -y autoclean \
